@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  open-webui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: open-webui-ocr
+    ports:
+      - "3000:8080"
+    volumes:
+      - open-webui-data:/app/backend/data
+    environment:
+      # Uncomment and set if using Ollama on the host
+      # - OLLAMA_BASE_URL=http://host.docker.internal:11434
+      # Uncomment for OpenAI API
+      # - OPENAI_API_KEY=your-key-here
+      - WEBUI_AUTH=true
+    restart: unless-stopped
+    # Uncomment if using Ollama on the host (Linux)
+    # extra_hosts:
+    #   - "host.docker.internal:host-gateway"
+
+volumes:
+  open-webui-data:
