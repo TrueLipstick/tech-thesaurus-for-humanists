@@ -1,0 +1,33 @@
+flowchart TD
+    classDef hardware fill:#d4e6f1,stroke:#2e86c1,color:#000
+    classDef software fill:#d5f5e3,stroke:#1e8449,color:#000
+    classDef network fill:#fdebd0,stroke:#ca6f1e,color:#000
+    classDef ai fill:#e8daef,stroke:#7d3c98,color:#000
+
+    PC["🖥️ YOUR COMPUTER"]:::hardware
+
+    PC --> OS["⚙️ OPERATING SYSTEM"]:::hardware
+    PC --> VSCODE["✏️ VS CODE / KILOCODE"]:::software
+    PC --> TERMINAL["🖥️ TERMINAL / CLI"]:::software
+    PC --> DOCKER["📦 DOCKER"]:::software
+    PC --> PI["🍓 RASPBERRY PI"]:::hardware
+    PC --> AI["🤖 THE AI LAYER"]:::ai
+    PC --> NET["🌐 THE NETWORK"]:::network
+
+    VSCODE -->|"has built-in"| TERMINAL
+
+    AI --> LLM["LLM"]:::ai
+    AI --> AGENT["AI AGENT"]:::ai
+    AI --> OPENWEBUI["Open WebUI"]:::ai
+    AI --> OLLAMA["Ollama / LM Studio"]:::ai
+    AI --> ONPREM["On-prem vs Off-prem"]:::ai
+
+    NET --> VPN["🔒 VPN"]:::network
+    NET --> LAN["LOCAL NETWORK"]:::network
+    NET --> INTERNET["THE INTERNET"]:::network
+    INTERNET --> GITHUB["GitHub"]:::network
+
+    PI -->|"lives on"| LAN
+    OPENWEBUI -->|"runs on"| PI
+    OLLAMA -->|"runs on"| PI
+  
